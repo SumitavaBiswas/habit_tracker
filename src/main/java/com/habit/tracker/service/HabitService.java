@@ -10,18 +10,18 @@ import java.util.List;
 @Service
 public class HabitService {
     @Autowired
-    HabitRepository repository;
+    HabitRepository habitRepository;
 
     public void saveHabit(Habit habit){
-        repository.save(habit);
+        habitRepository.save(habit);
     }
 
     public Habit getHabit(Long id){
-        return repository.findById(id).orElse(null);
+        return habitRepository.findById(id).orElse(null);
     }
 
     public List<Habit> getAllHabits(){
-        return repository.findAll();
+        return habitRepository.findAll();
     }
 
 

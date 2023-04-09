@@ -1,17 +1,21 @@
 package com.habit.tracker.model;
 
-import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Persistent;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
 import java.util.Set;
 
-@Data
-@Persistent
+@Entity
+@Getter
+@Setter
 public class DailyLog {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @OneToMany
     private Set<Habit> Habits;
 
 }
