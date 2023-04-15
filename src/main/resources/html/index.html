@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Habit Tracker</title>
+<script language="JavaScript">
+
+
+function buttonClick(){
+    let habit = document.getElementById("input_habit").value;
+    const url =  "http://localhost:8080/habit";
+    const data = { name : habit };
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    fetch(url, options)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(data));
+}
+
+</script>
+</head>
+<body>
+<label>
+    <input type="text" id="input_habit">
+</label>
+<button onclick="buttonClick()" type="button">Click</button>
+</body>
+</html>
